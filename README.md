@@ -21,14 +21,14 @@ The lab was built using **VMware Workstation** for virtualization, segmented int
 ### 1. Wazuh Server Deployment (All-in-one)
 An automated server installation was performed on Ubuntu using the official Wazuh script.
 
-*Captura Dashboard*
+![Wazuh Dashboard](./img/dashboard.png)
 
 ### 2. Agent Configuration (Linux and Windows)
 Agents were configured on the different endpoints to send telemetry to the central server.
 * **Ubuntu Endpoint:** Installed via Bash script, enabling the daemon and registering the machine with the Manager.
 * **Windows 10 Endpoint:** Deployed via administrative PowerShell, configuring the `wazuh-agent` service for automatic startup.
 
-*Captura Agents*
+![Wazuh Agents](./img/Agents.png)
 
 ## Proof of Concept and Use Cases (Detections)
 Once the infrastructure was set up, activity was simulated on the endpoints to test the SIEM's detection capabilities.
@@ -36,18 +36,18 @@ Once the infrastructure was set up, activity was simulated on the endpoints to t
 ### File Integrity Monitoring (FIM) on Windows
 The agent was configured to audit changes in the Windows file system and registry.
 
-*Captura Instalacion programas Windows*
+![Wazuh File Integrity](./img/App_Instalation.png)
 
 ### Vulnerability Detection and CIS Benchmarks
 The SIEM automatically audited the software status of the agents, cross-referencing installed packages with CVE databases.
 
-*Captura seccion Vulnerability detection*
+![Wazuh Vulnerability Detection](./img/Vulnerability_Detection.png)
 
 ### MITRE ATT&CK Monitoring (Privilege Escalation)
 
-*Captura suo Ubuntu*
+![Wazuh Privilege Escalation](./img/sudo.png)
 
-## Complex Problem Resolution (Troubleshooting)
+## Troubleshooting
 During the low-level deployment on the Linux server, I encountered severe package manager corruption and network conflicts, which were resolved by applying advanced system administration knowledge:
 
 1. **Port Conflict (Zombie OpenSearch/Elasticsearch):** * **Issue:** The installation failed because TCP ports 9200 and 9300 were blocked.
